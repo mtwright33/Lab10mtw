@@ -1,0 +1,24 @@
+
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>User Name</th>
+        <th>Company Name</th>
+        <th>Job Description</th></tr>
+
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/account/?student_id=<%= rs[i].student_id %>"> <%= rs[i].lname %>, <%= rs[i].fname %></a></td>
+            <td><a href="/companygpa/?c_id=<%= rs[i].c_id%>"> <%= rs[i].company %></a></td>%>
+            <td><a><%= rs[i].description %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No users are entered into the User Job database table.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/users/create">Create New Account</a>
+</div>

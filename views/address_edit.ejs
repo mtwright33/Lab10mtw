@@ -1,0 +1,24 @@
+
+<% include partials/header.ejs %>
+
+<% if(typeof message !== 'undefined') { %>
+<div class="alert <%= alert_class %>" role="alert"><%= message %></div>
+<% } %>
+
+
+<% if(typeof rs !== 'undefined' && rs.length == 1) { %>
+<form action="./update" class="col-md-4">
+    <div class="form-group">
+        Street: <br />
+        <input type="text" name="staddress" id="staddress" value="<%= rs[0].staddress %>" class="form-control" />
+    </div>
+    <label for="staddress">City:</label> <input type="text" name="city" id="city" value="<%= rs[0].city %>" /> <br />
+    <label for="staddress">State Abbreviation:</label> <input type="text" name="state" id="state" value="<%=rs[0].state%>"/><br />
+    <label for="staddress">Zip:</label> <input type="text" name="zip" id="zip" value="<%= rs[0].zip %>" />
+    <input type="hidden" name="a_id" id="a_id" value="<%= rs[0].a_id %>" />
+
+    <br />
+    <input type="submit" />
+</form>
+<% }%>
+<% include partials/footer.ejs %>

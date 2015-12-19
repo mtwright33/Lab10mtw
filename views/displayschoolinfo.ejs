@@ -1,0 +1,10 @@
+<% if(rs.length > 0) { %>
+Name: <%= rs[0].sname %> <br />
+Address: <%= rs[0].staddress %> <%= rs[0].city %> <%= rs[0].state %> <%= rs[0].zip %>
+<% } else { %><%= rs[0].staddress %>
+No account matched this school id <%= s_id %>.
+<% } %>
+
+<div style="margin-top:10px;">
+    <a href="/schools/create">Create New School</a>
+</div>

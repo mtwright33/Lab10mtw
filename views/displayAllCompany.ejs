@@ -1,0 +1,21 @@
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Name</th>
+        <th>Number Submitted</th></tr>
+
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/company/?c_id=<%= rs[i].c_id %>"> <%= rs[i].cname%></a></td>
+            <td><a><%= rs[i].numsub %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No accounts are entered into the Account database table.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/company/create">Create New Company</a>
+</div>

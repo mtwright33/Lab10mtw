@@ -1,0 +1,29 @@
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>company name</th>
+            <th>company id</th>
+            <th>company min</th>
+            <th>company max</th>
+            <th>company avg</th>
+            <th>company count</th></tr>
+
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a><%= rs[i].cname %></a></td>
+            <td><a><%= rs[i].c_id %></a></td>
+            <td><a><%= rs[i].min %></a></td>
+            <td><a><%= rs[i].max %></a></td>
+            <td><a><%= rs[i].avg %></a></td>
+            <td><a><%= rs[i].count %></a></td>
+
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No accounts are entered into the Companygpa database table.
+    <% } %>
+</div>
+<div style="margin-top:10px;">
+    <a href="/company/create">Create New Company</a>
+</div>

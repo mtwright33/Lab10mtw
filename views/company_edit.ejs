@@ -1,0 +1,34 @@
+<% include partials/header.ejs %>
+
+<% if(typeof message !== 'undefined') { %>
+<div class="alert <%= alert_class %>" role="alert"><%= message %></div>
+<% } %>
+
+
+<% if(typeof company !== 'undefined' && company.length == 1) { %>
+<form action="./update" class="col-md-4">
+    <div class="form-group">
+        <label for="street">Name:</label>
+        <input type="text" name="name" id="name" value="<%= company[0].cname %>" class="form-control" />
+    </div>
+    <label for="a_id">Address:</label>
+    <select id="a_id" name="a_id">
+        <option></option>
+        <% address.forEach(function(entry) { %>
+        <% var address = entry.staddress + " " + entry.city + ", " + entry.state + " " + entry.zip %>
+        <% var selected = "";
+            if(entry.a_id == company[0].a_id) {
+                selected = "selected";
+            }
+        %>
+        <option value="<%= entry.a_id %>" <%=selected %>><%= address %></option>
+        <% }); %>
+    </select>
+
+    <input type="hidden" name="a_id" id="a_id" value="<%= company[0].a_id %>" />
+
+    <br />
+    <input type="submit" />
+</form>
+<% }%>
+<% include partials/footer.ejs %>

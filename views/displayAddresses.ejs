@@ -1,0 +1,28 @@
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Name</th>
+            <th>Street Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </tr>
+
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a><%= rs[i].cname %><a/></td>
+            <td><a><%= rs[i].staddress %></a></td>
+            <td><a><%= rs[i].city %></a></td>
+            <td><a><%= rs[i].state %></a></td>
+            <td><a><%= rs[i].zip %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No accounts are entered into the Address database table.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/addresses/create">Create New Addresses</a>
+</div>
